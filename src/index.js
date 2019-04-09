@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import App from './app.vue'
 
-import './assets/images/bg.jpeg'
 import './assets/styles/test-scss.scss'
 
 const root = document.createElement('div')

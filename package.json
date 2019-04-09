@@ -1,12 +1,12 @@
 {
   "name": "vue-webpack",
   "version": "1.0.0",
-  "description": "vue+webpackg工程",
+  "description": "vue2.x+webpack4.x工程范式",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "rimraf dist",
-    "build": "cross-env NODE_ENV=production webpack --config webpack.config.js",
+    "build": "npm run clean && cross-env NODE_ENV=production webpack --config webpack.config.js",
     "dev": "cross-env NODE_ENV=development webpack-dev-server --config webpack.config.js",
     "lint": "eslint --ext .js --ext .jsx --ext .vue src/",
     "lint-fix": "eslint --fix --ext .js --ext .jsx --ext .vue src/",
@@ -30,6 +30,7 @@
     "babel-plugin-syntax-jsx": "^6.18.0",
     "babel-plugin-transform-vue-jsx": "^3.7.0",
     "babel-preset-env": "^1.7.0",
+    "compression-webpack-plugin": "^2.0.0",
     "cross-env": "^5.2.0",
     "css-loader": "^2.1.1",
     "eslint": "^5.16.0",

@@ -3,6 +3,7 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const HTMLPlugin = require('html-webpack-plugin')
 const webpack = require('webpack')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const CompressionWebpackPlugin = require('compression-webpack-plugin')
 
 const isDev = process.env.NODE_ENV === 'development'
 
@@ -35,7 +36,7 @@ const config = {
             loader: 'url-loader',
             options: {
               limit: 1024,
-              name: '[name].[ext]'
+              name: 'images/[name].[hash:7].[ext]'
             }
           }
         ]
@@ -46,7 +47,10 @@ const config = {
   },
   plugins: [
     new VueLoaderPlugin(),
-    new HTMLPlugin(),
+    new HTMLPlugin({
+      favicon: path.join(__dirname, './public/favicon.ico'),
+      template: path.join(__dirname, './public/index.html')
+    }),
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: isDev ? '"development"' : '"production"'
@@ -73,6 +77,9 @@ if (isDev) {
     overlay: {
       errors: true
     },
+    historyApiFallback: {
+      index: '/dist/index.html'
+    },
     hot: true
   }
   // config.plugins.push(
@@ -81,11 +88,7 @@ if (isDev) {
   // )
 } else {
   config.mode = 'production'
-  config.entry = {
-    app: path.join(__dirname, './src/index.js'),
-    vendor: ['vue']
-  }
-  config.output.filename = '[name].[chunkhash:8].js'
+  config.output.filename = 'js/[name].[chunkhash:8].js'
   config.module.rules.push(
     {
       test: /\.(sa|sc|c)ss$/,
@@ -99,17 +102,21 @@ if (isDev) {
   )
   config.plugins.push(
     new MiniCssExtractPlugin({
-      filename: '[name].[contentHash:8].css',
-      chunkFilename: '[id].[contentHash:8].css'
+      filename: 'css/[name].[contentHash:8].css'
+    }),
+    new CompressionWebpackPlugin({
+      filename: '[path].gz[query]',
+      algorithm: 'gzip',
+      test: /\.(js|css)$/,
+      threshold: 8192,
+      minRatio: 0.8
     })
   )
   config.optimization = {
     splitChunks: {
       chunks: 'all'
     },
-    runtimeChunk: {
-      name: 'manifest'
-    }
+    runtimeChunk: true
   }
 }
 
