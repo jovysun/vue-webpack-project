@@ -1,7 +1,7 @@
 {
   "name": "vue-webpack",
   "version": "1.0.0",
-  "description": "vue2.x+webpack4.x工程范式",
+  "description": "vue2.x+webpack4.x工程",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
