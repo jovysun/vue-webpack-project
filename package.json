@@ -10,7 +10,7 @@
     "dev": "cross-env NODE_ENV=development webpack-dev-server --config webpack.config.js",
     "lint": "eslint --ext .js --ext .jsx --ext .vue src/",
     "lint-fix": "eslint --fix --ext .js --ext .jsx --ext .vue src/",
-    "precommit": "npm run lint-fix"
+    "precommit": "npm run lint"
   },
   "keywords": [
     "vue",
