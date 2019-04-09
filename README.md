@@ -1,12 +1,14 @@
-
 # 概述
 从实际出发，手动从零搭建一个vue开发工程。技术栈：vue2.x+webpack4.x+babel6.x。
 # 详述
-## 初始化`package.json`
+## 初始化
 ```shell
 npm init
 ```
+
+
 ## 安装
+
 ### 基本环境
 ```shell
 npm i vue -S
@@ -18,11 +20,11 @@ npm i webpack webpack-cli vue-loader css-loader vue-style-loader vue-template-co
 ```shell
 npm i url-loader file-loader -D
 ```
-### css预编译
+### scss预编译
 ```shell
 npm i sass-loader node-sass -D
 ```
-### 开发环境
+### 开发server
 ```shell
 npm i webpack-dev-server html-webpack-plugin -D
 ```
@@ -34,13 +36,17 @@ npm i postcss-loader autoprefixer -D
 ```shell
 npm i babel-core@6.x babel-loader@7.x -D
 ```
-### 支持vue文件中的render函数jsx语法
+### 支持`.vue`文件中render函数jsx语法
 ```shell
 npm i babel-preset-env babel-plugin-transform-vue-jsx -D
 ```
 有警示，按照提示安装
 ```shell
 npm i babel-helper-vue-jsx-merge-props -D
+```
+### 支持`.jsx`
+```shell
+npm i babel-plugin-syntax-jsx -D
 ```
 ### css分离
 ```shell
@@ -54,6 +60,7 @@ npm i cross-env rimraf -D
 ```shell
 npm i compression-webpack-plugin -D
 ```
+
 
 ## 代码规范
 
@@ -152,37 +159,4 @@ npm i husky -D
 }
 ```
 
-## babel
-### 安装依赖包
-```shell
-npm i @babel/core @babel/preset-env babel-loader babel-plugin-syntax-dynamic-import -D
-```
-### 配置`.babelrc`
-```
-{
-  "presets": [
-    "@babel/preset-env"
-  ],
-  "plugins": [
-    "syntax-dynamic-import"
-  ]
-}
-```
-### babel支持jsx
-```shell
-npm i babel-helper-vue-jsx-merge-props babel-plugin-syntax-jsx babel-plugin-transform-vue-jsx -D
-```
-### 配置`.babelrc`
-```
-{
-  "presets": [
-    "env",
-    "stage-1"
-  ],
-  "plugins": [
-    "syntax-dynamic-import",
-    "transform-vue-jsx"
-  ]
-}
-```
 # 后记
