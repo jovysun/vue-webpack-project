@@ -10,7 +10,7 @@ npm init
 
 ### 基本环境
 ```shell
-npm i vue -S
+npm i vue vue-router vuex -S
 ```
 ```shell
 npm i webpack webpack-cli vue-loader css-loader vue-style-loader vue-template-compiler -D

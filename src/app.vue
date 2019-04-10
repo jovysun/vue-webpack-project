@@ -1,7 +1,7 @@
 <template>
   <div>
     <uu-header />
-    <p>{{ text }}</p>
+    <router-view />
     <uu-footer />
   </div>
 </template>

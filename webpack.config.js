@@ -56,7 +56,12 @@ const config = {
         NODE_ENV: isDev ? '"development"' : '"production"'
       }
     })
-  ]
+  ],
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, 'src')
+    }
+  }
 }
 
 if (isDev) {
