@@ -26,7 +26,8 @@ const config = {
         loader: 'vue-loader'
       },
       {
-        test: /\.jsx$/,
+        test: /\.(jsx|js)$/,
+        exclude: /node_modules/,
         loader: 'babel-loader'
       },
       {

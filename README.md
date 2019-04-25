@@ -1,5 +1,5 @@
 # 概述
-从实际出发，手动从零搭建一个vue开发工程。从基本依赖到工程工具到代码规范到生产打包，从不同功能层面逐步安装，并作对应说明。技术栈：vue2.x+webpack4.x+babel6.x。
+从实际出发，手动从零搭建一个vue开发工程。从基本依赖到工程工具到代码规范到生产打包，从不同功能层面逐步安装，并作对应说明。技术栈：vue2.x+webpack4.x+babel7.x。
 # 详述
 ## 初始化
 ```shell
@@ -31,22 +31,18 @@ npm i webpack-dev-server html-webpack-plugin -D
 ```shell
 npm i postcss-loader autoprefixer -D
 ```
-### babel(这里用babel6.x)
+
+### Babel 7.x
+
 ```shell
-npm i babel-core@6.x babel-loader@7.x -D
+# 基本配置
+npm i @babel/core @babel/preset-env @babel/polyfill @babel/runtime @babel/plugin-transform-runtime @babel/runtime-corejs2 -D
+# .vue开发环境
+npm i babel-plugin-transform-vue-jsx babel-helper-vue-jsx-merge-props babel-plugin-syntax-jsx babel-plugin-dynamic-import-webpack -D
+# webpack环境的loader
+npm i babel-loader -D
 ```
-### 支持`.vue`文件中render函数jsx语法
-```shell
-npm i babel-preset-env babel-plugin-transform-vue-jsx -D
-```
-有警示，按照提示安装
-```shell
-npm i babel-helper-vue-jsx-merge-props -D
-```
-### 支持`.jsx`
-```shell
-npm i babel-plugin-syntax-jsx -D
-```
+
 ### css分离
 ```shell
 npm i mini-css-extract-plugin -D
